@@ -5,7 +5,7 @@ function ListaDePessoas() {
   const [pessoas, setPessoas] = useState([]);
 
   useEffect(() => {
-    // Buscar todas as pessoas do banco de dados e definir o estado 'pessoas'
+    
     axios.get('http://localhost:5000/pessoas')
       .then((response) => {
         setPessoas(response.data);

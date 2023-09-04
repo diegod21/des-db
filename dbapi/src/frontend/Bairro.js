@@ -22,11 +22,10 @@ function Bairros() {
 
 
   const handleDeleteBairro = (id) => {
-    // Envie uma solicitação DELETE para excluir o bairro com o ID especificado
     axios.delete(`http://localhost:5000/bairros/${id}`)
       .then(response => {
         console.log('Bairro excluído com sucesso!', response);
-        // Atualize a lista de bairros após a exclusão
+        
         setBairros(bairros.filter(bairro => bairro.id !== id));
       })
       .catch(error => {
