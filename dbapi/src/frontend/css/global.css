@@ -1,0 +1,79 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#greenbtn{
+    padding: 10px;
+}
+.container{
+    max-width: 890px;
+    margin: auto;
+    border: 1px solid black;
+    min-height: 600px;
+    padding: 15px;
+}
+h2, .h2{
+    text-align: center;
+}
+.flexbox{
+    display: flex;
+    justify-content: center;
+    align-items:flex-start;
+}
+/* Estilo para a tabela */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilo para as linhas da tabela (itens) */
+  tr {
+    border-bottom: 1px solid #ccc;
+  }
+  
+  /* Estilo para as células da tabela */
+  td, th {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+  
+.list{
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: black;
+}
+ul{
+    list-style: none;
+}
+.form input{
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    display: block;
+    min-width: 50%;
+    max-width: 70%;
+}
+.form select{
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    display: block;
+    min-width: 50%;
+    max-width: 70%;
+}
+.form button{
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.form{
+    text-align: center;
+    border: 1px solid black;
+    margin: auto;
+    min-width: 400px;
+    max-width: 800px;
+}
