@@ -1,79 +1,80 @@
+
 *{
     margin: 0px;
     padding: 0px;
     font-family: Arial, Helvetica, sans-serif;
 }
-#greenbtn{
-    padding: 10px;
-}
 .container{
-    max-width: 890px;
     margin: auto;
     border: 1px solid black;
-    min-height: 600px;
-    padding: 15px;
-}
-h2, .h2{
-    text-align: center;
-}
-.flexbox{
+    height: 99vh;
     display: flex;
-    justify-content: center;
-    align-items:flex-start;
+    flex-direction: column;
+    justify-content: space-between;
 }
-/* Estilo para a tabela */
-table {
+
+.menutable {
     border-collapse: collapse;
-    width: 100%;
-    margin-bottom: 10px;
-  }
-  
-  /* Estilo para as linhas da tabela (itens) */
-  tr {
-    border-bottom: 1px solid #ccc;
-  }
-  
-  /* Estilo para as células da tabela */
-  td, th {
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: left;
-  }
-  
+}
+.menutable  td, .menutable  th {
+    border: 1px solid #000; 
+    padding: 8px; 
+}
+
+.menutable th {
+    background-color: #f2f2f2;
+    font-weight: bold; 
+}
 .list{
-    margin-bottom: 5px;
     text-decoration: none;
-    color: black;
+    color: #000;
 }
-ul{
-    list-style: none;
-}
-.form input{
-    margin: auto;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    padding: 10px;
-    display: block;
-    min-width: 50%;
-    max-width: 70%;
-}
-.form select{
-    margin: auto;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    padding: 10px;
-    display: block;
-    min-width: 50%;
-    max-width: 70%;
-}
-.form button{
-    padding: 10px;
-    margin-bottom: 10px;
-}
-.form{
-    text-align: center;
+.headerbtn{
     border: 1px solid black;
-    margin: auto;
-    min-width: 400px;
-    max-width: 800px;
+    padding: 10px;
+    background-color: #f2f2f2;
 }
+
+.listbox{
+    height: 98vh;
+    display: flex;
+    flex-direction: column;
+}
+.box{
+    margin: auto;
+    border: 1px solid black;
+    width: 90vw;
+    height: 70vh;
+}
+.listTable{
+    border-collapse: collapse; /* Mescla as bordas das células */
+  width: 100%; /* Define a largura da tabela */
+}
+.listTable th,
+.listTable td {
+  border-top: 1px solid #000; /* Borda superior */
+  border-bottom: 1px solid #000; /* Borda inferior */
+  padding: 8px; /* Espaçamento interno para as células */
+  text-align: left; /* Alinhamento do texto nas células */
+}
+.input-group {
+    
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .w30 {
+    width: 30%;
+    margin-right: 10px;
+    padding: 13px;
+  }
+  
+  .w70 {
+    width: 70%;
+    padding: 13px;
+  }
+form{
+    margin: auto;
+    width: 80%;
+} 

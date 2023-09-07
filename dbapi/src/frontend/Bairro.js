@@ -36,25 +36,31 @@ function Bairros() {
   
 
   return (
-    <div className='container'>
+    <div className='listbox'>
       <Header formType="bairro"></Header>
-      <h2>Bairros</h2>
-      <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nome</th>
-      </tr>
-    </thead>
-    <tbody>
-      {bairros.map((bairro) => (
-        <tr key={bairro.id}>
-          <td>{bairro.id}</td>
-          <td>{bairro.bairro} <button className='delbutton' onClick={() => handleDeleteBairro(bairro.id)}>Deletar</button></td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
+      <div className='box'>
+
+       <table className='listTable'>
+          <thead>
+            <tr>
+              <th>Código</th>
+              <th>Bairro</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            {bairros.map(bairro => (
+              <tr key={bairro.id}>
+                <td>{bairro.id}</td>
+                <td>{bairro.bairro}</td>
+                <td>
+                  <button onClick={() => handleDeleteBairro(bairro.id)}>Excluir</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

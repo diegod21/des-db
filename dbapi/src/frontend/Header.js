@@ -1,5 +1,7 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate , Link } from 'react-router-dom';
+import './css/global.css'
+
 
 function Header({ formType }) {
   const navigate = useNavigate();
@@ -34,7 +36,7 @@ function Header({ formType }) {
 
   return (
     <div>
-      <button className="greenbtn" onClick={redirectToForm}>Inlcuir {formType.charAt(0).toUpperCase() + formType.slice(1)}</button>
+      <button className="headerbtn" onClick={redirectToForm}>Inlcuir</button>
     </div>
   );
 }
