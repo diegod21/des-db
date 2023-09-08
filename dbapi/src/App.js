@@ -13,6 +13,7 @@ import ProdutosForm from './frontend/Produto-form';
 import Vendas from './frontend/Vendas'
 import VendasForm from './frontend/Vendas-form'
 import ListaPessoas from './frontend/ListPessoas'
+import ListaVendas from './frontend/ListVendas'
 
 function App() {
 
@@ -34,6 +35,8 @@ function App() {
         <Route path="/vendas" element={<Vendas />} />
         <Route path="/vendas-form" element={<VendasForm />} />
         <Route path="/peoplelist" element={<ListaPessoas />} />
+        
+        <Route path="/sellList" element={<ListaVendas />} />
 
 
 

@@ -23,7 +23,7 @@ function Menu (){
           <tr>
             <td><Link to="/cities" className='list'>Cidades</Link></td>
             <td></td>
-            <td>Lista de Vendas</td>
+            <td><Link to="/sellList" className='list'>Lista de Vendas</Link></td>
           </tr>
           <tr>
             <td><Link to="/pessoas" className='list'>Pessoas</Link></td>
