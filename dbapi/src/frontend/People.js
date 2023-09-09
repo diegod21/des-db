@@ -20,33 +20,55 @@ function Pessoas() {
       });
   }, []);
   
-  
+  const handleDeletePerson = (id) => {
+    axios.delete(`http://localhost:5000/people/${id}`)
+      .then(response => {
+        console.log('Bairro excluído com sucesso!', response);
+        
+        setPessoas(pessoas.filter(pessoa => pessoa.id !== id));
+      })
+      .catch(error => {
+        console.error('Erro ao excluir o bairro:', error);
+      });
+  };
 
+
+  const formatTelefone = (telefone) => {
+      return `(${telefone.slice(0, 2)}) ${telefone.slice(2)}`;
+   
+  };
   return (
-    <div>
-  <h2>Pessoas</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>Cidade</th>
-        <th>Telefone</th>
-      </tr>
-    </thead>
-    <tbody>
-      {pessoas.map((pessoa) => (
-        <tr key={pessoa.id}>
-          <td>{pessoa.id}</td>
-          <td>{pessoa.nome}</td>
-          <td>{pessoa.cidade}</td>
-          <td>{pessoa.telefone}</td>
+    <div className='listbox'>
+       <Header formType="people"></Header>
+      <div className='box'>
+        <table className='listTable'>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Cidade</th>
+          <th>Telefone</th>
+          <th>Ações</th>
         </tr>
-      ))}
-    </tbody>
-  </table>
-  <Header formType="people"></Header>
-</div>
+      </thead>
+      <tbody>
+        {pessoas.map((pessoa) => (
+          <tr key={pessoa.id}>
+            <td>{pessoa.id}</td>
+            <td>{pessoa.nome.charAt(0).toUpperCase() + pessoa.nome.slice(1)}</td>
+            <td>{pessoa.cidade.charAt(0).toUpperCase() + pessoa.cidade.slice(1)}</td>
+            <td>{formatTelefone(pessoa.telefone)}</td>
+            <td>
+                <button className="button deletebtn"  onClick={() => handleDeletePerson(pessoa.id)}>X</button>
+                <button className="button changebtn">+</button>
+            </td>
+
+          </tr>
+        ))}
+      </tbody>
+        </table>
+      </div>
+    </div>
 
   );
 }

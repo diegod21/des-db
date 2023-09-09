@@ -78,3 +78,48 @@ form{
     margin: auto;
     width: 80%;
 } 
+.border tr{
+    border: 1px solid black;
+}
+.listTable td .button {
+    border: none;
+  }
+.deletebtn{
+    padding: 5px;
+    border-radius: 3px;
+    margin-right: 4px;
+    color: white;
+    background-color: red;
+}
+.changebtn{
+    padding: 5px;
+    border-radius: 3px;
+    margin-right: 4px;
+    color: white;
+    background-color: green;
+}
+.flexbtn{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.subbtn{
+    background-color: green;
+    padding: 10px;
+    color: white;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    border: none;
+}
+.canbtn{
+    background-color: red;
+    padding: 10px;
+    color: white;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    border: none;
+}
+.input-label{
+    display: inline;
+}
+  

@@ -175,6 +175,22 @@ app.delete('/bairros/:id', (req, res) => {
   });
 });
 
+app.delete('/people/:id', (req, res) => {
+  const pessoaId = req.params.id;
+
+  const query = 'DELETE FROM pessoas WHERE id = ?';
+
+  connection.query(query, [pessoaId], (err, result) => {
+    if (err) {
+      console.error('Erro ao excluir pessoa:', err);
+      res.status(500).json({ error: 'Erro ao excluir pessoa' });
+    } else {
+      console.log('pessoa excluído com sucesso!');
+      res.status(204).send();
+    }
+  });
+});
+
 
 const PORT = 5000
 app.listen(PORT, () => {

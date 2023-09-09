@@ -54,7 +54,8 @@ function Bairros() {
                 <td>{bairro.id}</td>
                 <td>{bairro.bairro}</td>
                 <td>
-                  <button onClick={() => handleDeleteBairro(bairro.id)}>Excluir</button>
+                  <button onClick={() => handleDeleteBairro(bairro.id)} className='button deletebtn'>X</button>
+                  <button className='button changebtn'>+</button>
                 </td>
               </tr>
             ))}

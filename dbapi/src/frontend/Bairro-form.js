@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import Header from './Header';
 
 function BairroForm(){
-    
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     id: '',
     bairro: '',
@@ -23,6 +24,7 @@ function BairroForm(){
         }
       }).then((response) => {
         console.log('Dados enviados com sucesso!', response.data);
+         navigate('/bairro');
       }) }
 
 
@@ -31,32 +33,34 @@ function BairroForm(){
     return(
         <div className='page-container'>
           <Header  formType="bairro"></Header>
-          <div className='box'>
+          <div className='box flexbtn'>
             
-              <form>
-                <div className='input-group'>
-                  
-                    <input 
-                      className='w30'
-                        type="number"
-                        name="id"
-                        placeholder="id"
-                        value={formData.id}
-                        onChange={handleChange}
-                        />
-                     <input
-                     className='w70'
-                        type="text"
-                        name="bairro"
-                        placeholder="Bairro"
-                        value={formData.bairro}
-                        onChange={handleChange}
-                        />
-                </div>
-              </form>
+              <div>
+                <form>
+                  <div className='input-group'>
+
+                  <label htmlFor='id'>ID:</label>
+                      <input
+                        className='w30'
+                          type="number"
+                          name="id"
+                          value={formData.id}
+                          onChange={handleChange}
+                          />
+                     <label htmlFor='bairro'>Bairro:</label>      
+                       <input
+                       className='w70'
+                          type="text"
+                          name="bairro"
+                          value={formData.bairro}
+                          onChange={handleChange}
+                          />
+                  </div>
+                </form>
+              </div>
               <div className='button-group'>
-                <button type="submit" onClick={handleSubmit}>Confirmar</button>
-                <button>Cancelar</button>
+                <button type="submit" onClick={handleSubmit} className='subbtn'>Confirmar</button>
+                <button className='canbtn' onClick={()=>{navigate('/bairro')}}>Cancelar</button>
               </div>
           </div>
         </div>
