@@ -33,7 +33,7 @@ function Bairros() {
       });
   };
 
-  
+
 
   return (
     <div className='listbox'>

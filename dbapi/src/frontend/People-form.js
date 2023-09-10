@@ -1,8 +1,12 @@
 import React, {useState,  useEffect} from 'react'
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 
 function PeopleForm(){
     
+
+  const navigate = useNavigate();
+
   const [possibleCities, setPossibleCities] = useState([]);
   const [possibleBairros, setPossibleBairros] = useState([]);
   const [formData, setFormData] = useState({
@@ -68,105 +72,147 @@ function PeopleForm(){
         }
       }).then((response) => {
         console.log('Dados enviados com sucesso!', response.data);
+        navigate('/pessoas');
       }) }
 
 
 
 
     return(
-        <div className='box'>
+        <div className='box flexbtn'>
+
+          
             <form>
                 <div className='input-group'>
-                  <input
-                      className='w30'
-                      type="number"
-                      name="id"
-                      placeholder="id"
-                      value={formData.id}
-                      onChange={handleChange}
-                      />
-                  <input
-                      className='w70'
-                      type="text"
-                      name="nome"
-                      placeholder="Nome"
-                      value={formData.nome}
-                      onChange={handleChange}
-                      />
+
+                  <div className='labelflex w30'>
+
+                    <label htmlFor='id'>Código:</label>
+                    <input
+                        className='w0'
+                        type="number"
+                        name="id"
+                        value={formData.id}
+                        onChange={handleChange}
+                        />
+                  </div>
+
+                  <div className='labelflex w70'>
+                    <label htmlFor='nome'>Nome:</label>
+                    <input
+                        className='w0'
+                        type="text"
+                        name="nome"
+                        value={formData.nome}
+                        onChange={handleChange}
+                        />
+                  </div>
                 </div>
 
 
                  
-                  <select name="cidade" value={formData.cidade} onChange={handleChange}>
-                   <option value="">Selecione Uma Cidade</option>
-                     {possibleCities.map((cidade) => (
-                   <option key={cidade.id} value={cidade.nome}>
-                      {cidade.cidade}
-                    </option>
-                     ))}
-                  </select>
+                  <div className='input-group'>
 
-                  <select name="bairro" value={formData.bairro} onChange={handleChange}>
-                   <option value="">Selecione Um Bairro</option>
-                     {possibleBairros.map((bairro) => (
-                   <option key={bairro.id} value={bairro.bairro}>
-                      {bairro.bairro}
-                    </option>
-                     ))}
-                  </select>
+                  <div className='labelflex w40'>
+                    <label htmlFor='cidade'>Cidade</label>
+                      <select name="cidade" value={formData.cidade} onChange={handleChange} className='w0'>
+                       <option value=""></option>
+                         {possibleCities.map((cidade) => (
+                       <option key={cidade.id} value={cidade.nome}>
+                          {cidade.cidade}
+                        </option>
+                         ))}
+                      </select>
+                  </div>
 
-                <input
-                    type="text"
-                    name="cep"
-                    placeholder="CEP"
-                    value={formData.cep}
-                    onChange={handleChange}
-                    />
+                    <div className='labelflex w40'>
+                      <label htmlFor='bairro'>Bairro</label>
+                      <select name="bairro" value={formData.bairro} onChange={handleChange} className='w0'>
+                       <option value=""></option>
+                         {possibleBairros.map((bairro) => (
+                       <option key={bairro.id} value={bairro.bairro}>
+                          {bairro.bairro}
+                        </option>
+                         ))}
+                      </select>
+                    </div>
+                    
+                    <div className='labelflex w20'>
+                      <label htmlFor='cep'>CEP</label>
+                      <input
+                        className='w0'
+                        type="text"
+                        name="cep"
+                        value={formData.cep}
+                        onChange={handleChange}
+                        />
+                    </div>
+                    </div>
+                  <div className='input-group'>
+                    
+                  <div className='labelflex  w40'>
+                    <label htmlFor='endereco'>Endereço</label>
+                        <input
+                        className='w0'
+                        type="text"
+                        name="endereco"
+                        value={formData.endereco}
+                        onChange={handleChange}
+                        />
+                  </div>
 
-                <input
-                    type="text"
-                    name="endereco"
-                    placeholder="Endereço"
-                    value={formData.endereco}
-                    onChange={handleChange}
-                    />
+                    <div className='labelflex w30'>
+                      <label htmlFor='numero'>Numero</label>
+                      <input
+                      className='w0'
+                      type="text"
+                      name="numero"
+                      value={formData.numero}
+                      onChange={handleChange}
+                      />
+                    </div>
+                    
+                    <div className='labelflex w40'>
+                      <label htmlFor='complemento'>Complemento</label>
+                      <input
+                      className='w0'
+                      type="text"
+                      name="complemento"
+                      value={formData.complemento}
+                      onChange={handleChange}
+                      />
+                                        </div>
+                    </div>
 
-                <input
-                    type="text"
-                    name="numero"
-                    placeholder="Numero"
-                    value={formData.numero}
-                    onChange={handleChange}
-                    />
+                <div className='input-group'>
 
-                
-                <input
-                    type="text"
-                    name="complemento"
-                    placeholder="Complemento"
-                    value={formData.complemento}
-                    onChange={handleChange}
-                    />
+                  <div className='labelflex w40'>
+                    <label htmlFor='telefone'>Telefone</label>
+                    <input
+                    className='w0'
+                        type="text"
+                        name="telefone"
+                        value={formData.telefone}
+                        onChange={handleChange}
+                        />
+                  </div>
 
-                <input
-                    type="text"
-                    name="telefone"
-                    placeholder="Telefone"
-                    value={formData.telefone}
-                    onChange={handleChange}
-                    />
-
-
-                <input
-                    type="text"
-                    name="email"
-                    placeholder="E-mail"
-                    value={formData.email}
-                    onChange={handleChange}
-                    />
+                  <div className='labelflex w70'>
+                    <label htmlFor='email'>E-mail</label>
+                    <input
+                    className='w0'
+                        type="text"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        />
+                  </div>
+                </div>
             </form>
-            <button type="submit" onClick={handleSubmit}>Confirmar</button>
-            <button>Cancelar</button>
+            <div className='button-group'>
+                <button type="submit" onClick={handleSubmit} className='subbtn'>Confirmar</button>
+                <button className='canbtn' onClick={()=>{navigate('/pessoas')}}>Cancelar</button>
+              </div>
         </div>
     )
 }

@@ -191,6 +191,55 @@ app.delete('/people/:id', (req, res) => {
   });
 });
 
+app.delete('/city/:id', (req, res) => {
+  const cityID = req.params.id;
+
+  const query = 'DELETE FROM cities WHERE id = ?';
+
+  connection.query(query, [cityID], (err, result) => {
+    if (err) {
+      console.error('Erro ao excluir cidade:', err);
+      res.status(500).json({ error: 'Erro ao excluir cidade' });
+    } else {
+      console.log('cidade excluída com sucesso!');
+      res.status(204).send();
+    }
+  });
+});
+
+app.delete('/produto/:id', (req, res) => {
+  const prodId = req.params.id;
+
+  const query = 'DELETE FROM produtos WHERE id = ?';
+
+  connection.query(query, [prodId], (err, result) => {
+    if (err) {
+      console.error('Erro ao excluir produto:', err);
+      res.status(500).json({ error: 'Erro ao excluir produto' });
+    } else {
+      console.log('produtos excluída com sucesso!');
+      res.status(204).send();
+    }
+  });
+});
+
+app.delete('/venda/:id', (req, res) => {
+  const prodId = req.params.id;
+
+  const query = 'DELETE FROM vendas WHERE id = ?';
+
+  connection.query(query, [prodId], (err, result) => {
+    if (err) {
+      console.error('Erro ao excluir venda:', err);
+      res.status(500).json({ error: 'Erro ao excluir venda' });
+    } else {
+      console.log('venda excluída com sucesso!');
+      res.status(204).send();
+    }
+  });
+});
+
+
 
 const PORT = 5000
 app.listen(PORT, () => {

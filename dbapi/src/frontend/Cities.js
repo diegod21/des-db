@@ -20,30 +20,48 @@ function Cities() {
       });
   }, []);
   
+
+  const handleDeleteBairro = (id) => {
+    axios.delete(`http://localhost:5000/city/${id}`)
+      .then(response => {
+        console.log('Bairro excluído com sucesso!', response);
+        
+        setCities(cities.filter(city => city.id !== id));
+      })
+      .catch(error => {
+        console.error('Erro ao excluir o bairro:', error);
+      });
+  };
   
 
   return (
-    <div className='container'>
+    <div className='listbox'>
       <Header formType="cities"></Header>
-      <h2>Cidades</h2>
-      <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>UF</th>
-      </tr>
-    </thead>
-    <tbody>
-      {cities.map((city) => (
-        <tr key={city.id}>
-          <td>{city.id}</td>
-          <td>{city.cidade}</td>
-          <td>{city.UF}</td>
+      <div className='box'>
+        <table className='listTable'>
+            <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>UF</th>
+          <th>Ações</th>
         </tr>
-      ))}
-    </tbody>
-  </table>
+            </thead>
+            <tbody>
+        {cities.map((city) => (
+          <tr key={city.id}>
+            <td>{city.id}</td>
+            <td>{city.cidade}</td>
+            <td>{city.UF}</td>
+            <td>
+                  <button onClick={() => handleDeleteBairro(city.id)} className='button deletebtn'>X</button>
+                  <button className='button changebtn'>+</button>
+                </td>
+          </tr>
+        ))}
+            </tbody>
+          </table>
+      </div>
     </div>
   );
 }

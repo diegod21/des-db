@@ -19,31 +19,50 @@ function Produtos() {
         console.error('Erro ao buscar dados dos Produtos:', error);
       });
   }, []);
+
+  const handleDeleteProduto = (id) => {
+    axios.delete(`http://localhost:5000/produto/${id}`)
+      .then(response => {
+        console.log('produto excluído com sucesso!', response);
+        
+        setProdutos(produtos.filter(produto => produto.id !== id));
+      })
+      .catch(error => {
+        console.error('Erro ao excluir o produto:', error);
+      });
+  };
   
   
 
   return (
-    <div>
+    <div className='listbox'>
       <Header formType="produtos"></Header>
-      <h2>Produtos</h2>
-      <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>Cidade</th>
-      </tr>
-    </thead>
-    <tbody>
-      {produtos.map((prod) => (
-        <tr key={prod.id}>
-          <td>{prod.id}</td>
-          <td>{prod.produto}</td>
-          <td>{prod.preco}</td>
+      <div className='box'>
+        
+        <table className='listTable'>
+            <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Cidade</th>
+          <th>Ações</th>
         </tr>
-      ))}
-    </tbody>
-  </table>
+            </thead>
+            <tbody>
+        {produtos.map((prod) => (
+          <tr key={prod.id}>
+            <td>{prod.id}</td>
+            <td>{prod.produto}</td>
+            <td>{prod.preco}</td>
+            <td>
+                    <button onClick={() => handleDeleteProduto(prod.id)} className='button deletebtn'>X</button>
+                    <button className='button changebtn'>+</button>
+                  </td>
+          </tr>
+        ))}
+            </tbody>
+          </table>
+      </div>
     </div>
   );
 }

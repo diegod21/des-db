@@ -20,29 +20,49 @@ function Vendas(){
           console.error('Erro ao buscar dados das Vendas:', error);
         });
     }, []);
-    return(
-        <div>
-            <h2>Vendas</h2>
-            <Header  formType="vendas"></Header>
 
-            <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>Total</th>
-      </tr>
-    </thead>
-    <tbody>
-      {vendas.map((venda) => (
-        <tr key={venda.id}>
-          <td>{venda.id}</td>
-          <td>{venda.nome}</td>
-          <td>{venda.subtotal}</td>
+    const handleDeleteVenda = (id) => {
+      axios.delete(`http://localhost:5000/venda/${id}`)
+        .then(response => {
+          console.log('Venda excluído com sucesso!', response);
+          
+          setVendas(vendas.filter(venda => venda.id !== id));
+        })
+        .catch(error => {
+          console.error('Erro ao excluir o Venda:', error);
+        });
+    };
+
+
+    return(
+        <div className="listbox">
+            <Header  formType="vendas"></Header>
+<div className="box">
+  
+      <table className="listTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Total</th>
+          <th>Ações</th>
         </tr>
-      ))}
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        {vendas.map((venda) => (
+          <tr key={venda.id}>
+            <td>{venda.id}</td>
+            <td>{venda.nome}</td>
+            <td>{venda.subtotal}</td>
+            <td>
+                  <button onClick={() => handleDeleteVenda(venda.id)} className='button deletebtn'>X</button>
+                  <button className='button changebtn'>+</button>
+                </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+</div>
         </div>
     )
 }

@@ -31,7 +31,7 @@ function BairroForm(){
 
 
     return(
-        <div className='page-container'>
+        <div>
           <Header  formType="bairro"></Header>
           <div className='box flexbtn'>
             
@@ -39,23 +39,27 @@ function BairroForm(){
                 <form>
                   <div className='input-group'>
 
-                  <label htmlFor='id'>ID:</label>
-                      <input
-                        className='w30'
-                          type="number"
-                          name="id"
-                          value={formData.id}
-                          onChange={handleChange}
-                          />
-                     <label htmlFor='bairro'>Bairro:</label>      
-                       <input
-                       className='w70'
-                          type="text"
-                          name="bairro"
-                          value={formData.bairro}
-                          onChange={handleChange}
-                          />
+                  <div className='labelflex w30'>
+                    <label htmlFor='id'>ID:</label>
+                        <input
+                          className='w0'
+                            type="number"
+                            name="id"
+                            value={formData.id}
+                            onChange={handleChange}
+                            />
                   </div>
+                     <div className='labelflex w70'>
+                       <label htmlFor='bairro'>Bairro:</label>
+                         <input
+                         className='w0'
+                            type="text"
+                            name="bairro"
+                            value={formData.bairro}
+                            onChange={handleChange}
+                            />
+                                         </div>
+                     </div>
                 </form>
               </div>
               <div className='button-group'>
