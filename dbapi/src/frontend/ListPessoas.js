@@ -24,28 +24,42 @@ function ListaDePessoas() {
   );
 
   return (
-    <div className=''>
-      <div className=''>
-        <input
-          type='text'
-          placeholder='Buscar por nome'
-          value={buscaNome}
-          onChange={(ev) => setBuscaNome(ev.target.value)}
-        />
-        <input
-          type='text'
-          placeholder='Buscar por cidade'
-          value={buscaCidade}
-          onChange={(ev) => setBuscaCidade(ev.target.value)}
-        />
-        <input
-          type='text'
-          placeholder='Buscar por bairro'
-          value={buscaBairro}
-          onChange={(ev) => setBuscaBairro(ev.target.value)}
-        />
+    <div className='box'>
+      <h4>Lista de Pessoas</h4>
+        <div className='busca'>
+  
+          <label htmlFor='text'>Nome</label>
+          <input
+            type='text'
+            value={buscaNome}
+            onChange={(ev) => setBuscaNome(ev.target.value)}
+          />
+        </div>
 
-        <table>
+        <div className='busca'>
+          <label htmlFor='text'>Cidade</label>
+          <input
+            type='text'
+            value={buscaCidade}
+            onChange={(ev) => setBuscaCidade(ev.target.value)}
+          />
+        </div>
+
+        <div className='busca'>
+          <label htmlFor='text'>Bairro</label>
+          <input
+            type='text'
+            value={buscaBairro}
+            onChange={(ev) => setBuscaBairro(ev.target.value)}
+          />
+        </div>
+
+        <div className='compflex'>
+          <div>Lista de Pessoas</div>
+          <div>Nome Empresa <br></br> Av. Euclides da Cunha, 190</div>
+        </div>
+
+        <table className='listTable'>
           <thead>
             <tr>
               <th>ID</th>
@@ -65,7 +79,6 @@ function ListaDePessoas() {
             ))}
           </tbody>
         </table>
-      </div>
     </div>
   );
 }

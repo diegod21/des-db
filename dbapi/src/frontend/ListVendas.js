@@ -31,36 +31,62 @@ function VendasList() {
   );
 
   return (
-    <div>
-      <input
-        type='text'
-        placeholder='Buscar por Produto'
-        value={prodVenda}
-        onChange={ev => setProdVenda(ev.target.value)}
-      />
-      <input
-        type='text'
-        placeholder='Buscar por Nome'
-        value={pessoaVenda}
-        onChange={ev => setPessoaVenda(ev.target.value)}
-      />
-      <input
-        type='date'
-        placeholder='Data Início'
-        value={dataInicio}
-        onChange={ev => setDataInicio(ev.target.value)}
-      />
-      <input
-        type='date'
-        placeholder='Data Fim'
-        value={dataFim}
-        onChange={ev => setDataFim(ev.target.value)}
-      />
-      <ul>
-        {vendasFiltradas.map(venda => (
-          <li key={venda.id}> {venda.id} {venda.nome} {venda.subtotal}</li>
-        ))}
-      </ul>
+    <div className='box'>
+      
+      <h4>Lista de Vendas</h4>
+       <div className='busca'>
+         <label htmlFor='text'>Produto</label>
+               <input
+          type='text'
+          value={prodVenda}
+          onChange={ev => setProdVenda(ev.target.value)}
+               />
+       </div>
+
+       <div className='busca'>
+         <label htmlFor='text'>Nome</label>
+               <input
+          type='text'
+          value={pessoaVenda}
+          onChange={ev => setPessoaVenda(ev.target.value)}
+               />
+       </div>
+
+       <div className='busca'>
+         <label htmlFor='text'>Periodo de Venda</label>
+               <input
+          type='date'
+          value={dataInicio}
+          onChange={ev => setDataInicio(ev.target.value)}
+               />
+               <input
+          type='date'
+          value={dataFim}
+          onChange={ev => setDataFim(ev.target.value)}
+               />
+       </div>
+       <div className='compflex'>
+          <div>Lista de Pessoas</div>
+          <div>Nome Empresa <br></br> Av. Euclides da Cunha, 190</div>
+        </div>
+       <table className='listTable'>
+          <thead>
+            <tr>
+              <th>Código</th>
+              <th>Pessoa</th>
+              <th>Sub-total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {vendasFiltradas.map((venda) => (
+              <tr key={venda.id}>
+                <td>{venda.id}</td>
+                <td>{venda.nome}</td>
+                <td>{venda.subtotal}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
     </div>
   );
 }

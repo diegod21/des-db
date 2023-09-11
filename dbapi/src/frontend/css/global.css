@@ -148,5 +148,18 @@ form{
 .end label{
    margin-right: 100px;
 }
-  
-  
+.busca{
+margin:auto;
+text-align: center;
+padding: 10px;
+}
+.busca input{
+    padding: 8px;
+    }
+      
+.compflex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 2px solid black;
+}
