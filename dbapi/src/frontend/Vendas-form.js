@@ -50,7 +50,6 @@ function ProdutosForm() {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    // Se o campo que está mudando for "produto", atualize o preço
     if (name === 'produto') {
       const selectedProductDetails = possibleProdutos.find(
         (produto) => produto.produto === value
@@ -62,16 +61,15 @@ function ProdutosForm() {
         preco: selectedProductDetails ? selectedProductDetails.preco : '',
         subtotal: selectedProductDetails
           ? selectedProductDetails.preco * formData.qtde
-          : '', // Calcule o subtotal automaticamente
+          : '',
       });
     } else if (name === 'qtde' || name === 'preco') {
-      // Se o campo for "qtde" ou "preco", recalcule o subtotal
       setFormData({
         ...formData,
         [name]: value,
         subtotal: formData.produto
           ? value * formData.preco
-          : '', // Calcule o subtotal automaticamente
+          : '',
       });
     } else {
       setFormData({ ...formData, [name]: value });

@@ -36,7 +36,7 @@ function Menu (){
           <col />
           <col />
           <col />
-          <col style={{ width: "33%" }} /> {/* Coluna para Admin ocupando 33% do espaço */}
+          <col style={{ width: "33%" }} />
           <col style={{ width: "33%" }} />
           <col style={{ width: "33%" }} />
         </colgroup>
