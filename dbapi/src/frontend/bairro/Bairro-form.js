@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
-import Header from './Header';
+import Header from '../components/Header';
 
 function BairroForm(){
   const navigate = useNavigate();

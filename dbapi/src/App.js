@@ -2,18 +2,20 @@
 import React from 'react'
 import Menu from './frontend/Menu'
 import { BrowserRouter as Router , Route, Routes } from 'react-router-dom';
-import People from './frontend/People'
-import PeopleForm from './frontend/People-form'
-import Cities from './frontend/Cities'
-import Citiesform from './frontend/Cities-form';
-import Bairros from './frontend/Bairro';
-import BairroForm from './frontend/Bairro-form';
-import Produtos from './frontend/Produtos';
-import ProdutosForm from './frontend/Produto-form';
-import Vendas from './frontend/Vendas'
-import VendasForm from './frontend/Vendas-form'
-import ListaPessoas from './frontend/ListPessoas'
-import ListaVendas from './frontend/ListVendas'
+import People from './frontend/people/People'
+import PeopleForm from './frontend/people/People-form'
+import Cities from './frontend/cities/Cities'
+import Citiesform from './frontend/cities/Cities-form';
+import Bairros from './frontend/bairro/Bairro';
+import BairroForm from './frontend/bairro/Bairro-form';
+import Produtos from './frontend/produtos/Produtos';
+import ProdutosForm from './frontend/produtos/Produto-form';
+
+import Vendas from './frontend/vendas/Vendas'
+
+import VendasForm from './frontend/vendas/Vendas-form'
+import ListaPessoas from './frontend/listPeople/ListPessoas'
+import ListaVendas from './frontend/listSell/ListVendas'
 
 function App() {
 

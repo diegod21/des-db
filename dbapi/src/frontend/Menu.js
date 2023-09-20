@@ -1,6 +1,6 @@
 import './css/global.css'
 import { Link } from 'react-router-dom';
-import Footer from './footer'
+import Footer from './components/footer'
 
 function Menu (){
     return(

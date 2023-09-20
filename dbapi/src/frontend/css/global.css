@@ -163,3 +163,33 @@ padding: 10px;
     justify-content: space-between;
     border: 2px solid black;
 }
+.add-to-cart-btn{
+    margin: auto;
+}
+.me{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-left: 10px;
+}
+.border{
+    border: 1px solid black;
+}
+.prodBox{
+    width: 80%;
+    border: 1px solid black;
+    margin: auto;
+    max-height: 170px; 
+    overflow-y: auto; 
+}
+.total{
+    display: flex;
+    justify-content: space-between;
+}
+.totalBtn{
+    background-color: gray;
+    padding: 15px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    color: white;
+}

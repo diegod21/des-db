@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Header from './Header'
+import Header from '../components/Header'
 
 function Produtos() {
   const [produtos, setProdutos] = useState([]);
