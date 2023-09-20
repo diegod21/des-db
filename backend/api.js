@@ -138,15 +138,15 @@ app.post('/add-produto', (req, res) => {
       console.log('Produto inserida com sucesso!');
       res.status(200).json({ message: 'Produto inserida com sucesso!' });
     }
-  });
+  })
 });
 
 app.post('/add-venda', (req, res) => {
 
-  const { id, datav , nome , produto , qtde , preco , subtotal } = req.body;
+  const { id, datav , nome, subtotal } = req.body;
 
-  const query = 'INSERT INTO venda (id, datav , nome , produto , qtde , preco , subtotal ) VALUES (?, ?, ? , ?, ?, ? , ?)';
-  const values = [id, datav , nome , produto , qtde , preco , subtotal];
+  const query = 'INSERT INTO venda (id, datav , nome , subtotal ) VALUES (?, ?, ? , ?)';
+  const values = [id, datav , nome  , subtotal];
 
   connection.query(query, values, (err, result) => {
     if (err) {
@@ -226,7 +226,7 @@ app.delete('/produto/:id', (req, res) => {
 app.delete('/venda/:id', (req, res) => {
   const prodId = req.params.id;
 
-  const query = 'DELETE FROM vendas WHERE id = ?';
+  const query = 'DELETE FROM venda WHERE id = ?';
 
   connection.query(query, [prodId], (err, result) => {
     if (err) {
