@@ -10,9 +10,7 @@ import Bairros from './frontend/bairro/Bairro';
 import BairroForm from './frontend/bairro/Bairro-form';
 import Produtos from './frontend/produtos/Produtos';
 import ProdutosForm from './frontend/produtos/Produto-form';
-
 import Vendas from './frontend/vendas/Vendas'
-
 import VendasForm from './frontend/vendas/Vendas-form'
 import ListaPessoas from './frontend/listPeople/ListPessoas'
 import ListaVendas from './frontend/listSell/ListVendas'
