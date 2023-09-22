@@ -8,15 +8,29 @@ function TotalVendas({ totalVendas, formData, cart }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Calcula o subtotal antes de enviar os dados
+
+    const items = cart.map((item) => ({
+      id_produto: item.produtoId,
+      id_venda: formData.id,
+      preco: item.preco,
+      qtde: item.qtde
+    }));
+
+    const vendaData = {
+      data: formData.datav,
+      pessoa: formData.nome,
+      total: totalVendas,
+      items,
+    };
+  
+
     const subtotal = cart.reduce((acc, item) => {
       return acc + parseFloat(item.subtotal);
     }, 0);
 
-    // Atualiza o formData com o subtotal calculado
     const updatedFormData = {
       ...formData,
-      subtotal: subtotal.toFixed(2), // Converte para duas casas decimais
+      subtotal: subtotal.toFixed(2), 
     };
 
     axios
@@ -28,6 +42,19 @@ function TotalVendas({ totalVendas, formData, cart }) {
       .then((response) => {
         console.log('Dados enviados com sucesso!', response.data);
         navigate('/vendas');
+      });
+    axios
+      .post('http://localhost:5000/add-item-venda', vendaData, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then((response) => {
+        console.log('Dados enviados com sucesso!', response.data);
+        navigate('/vendas');
+      })
+      .catch((error) => {
+        console.error('Erro ao enviar os dados da venda:', error);
       });
   };
 

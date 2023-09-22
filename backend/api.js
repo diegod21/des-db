@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express()
 const connection = require('./database/impData')
-const path = require('path');
 const cors = require('cors');
 app.use(express.json())
 
@@ -71,10 +70,10 @@ app.get('/vendas', (req, res) => {
 
 app.post('/add-people', (req, res) => {
 
-  const { id, nome, cidade, bairro, cep, endereco, numero, complemento, telefone, email } = req.body;
+  const { id, nome, cidade, bairro, cep, endereco, numero, complemento, telefone, email , teste } = req.body;
 
-  const query = 'INSERT INTO pessoas (id, nome, cidade, bairro, cep, endereco, numero, complemento, telefone, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
-  const values = [id, nome, cidade, bairro, cep, endereco, numero, complemento, telefone, email];
+  const query = 'INSERT INTO pessoas (id, nome, cidade, bairro, cep, endereco, numero, complemento, telefone, email , teste) VALUES (?, ? , ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+  const values = [id, nome, cidade, bairro, cep, endereco, numero, complemento, telefone, email , teste];
 
   connection.query(query, values, (err, result) => {
     if (err) {
@@ -123,6 +122,28 @@ app.post('/add-bairro', (req, res) => {
   });
 });
 
+app.post('/add-item-venda', (req, res) => {
+  const { items } = req.body;
+
+  items.forEach((item) => {
+    const { id_produto, id_venda, preco , qtde } = item;
+
+    const query = 'INSERT INTO venda_item (id_produto, id_venda, preco, qtde) VALUES (?, ?, ? ,?)';
+    const values = [id_produto, id_venda, preco , qtde];
+
+    connection.query(query, values, (err, result) => {
+      if (err) {
+        console.error('Erro ao inserir item de venda no banco de dados:', err);
+        res.status(500).json({ error: 'Erro ao inserir item de venda' });
+      } else {
+        console.log('Item de venda inserido com sucesso!');
+      }
+    });
+  });
+
+  res.status(200).json({ message: 'Itens de venda inseridos com sucesso!' });
+});
+
 app.post('/add-produto', (req, res) => {
 
   const { id, produto , preco } = req.body;
@@ -143,7 +164,7 @@ app.post('/add-produto', (req, res) => {
 
 app.post('/add-venda', (req, res) => {
 
-  const { id, datav , nome, subtotal } = req.body;
+  const { id, datav , nome, subtotal  } = req.body;
 
   const query = 'INSERT INTO venda (id, datav , nome , subtotal ) VALUES (?, ?, ? , ?)';
   const values = [id, datav , nome  , subtotal];

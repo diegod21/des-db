@@ -20,6 +20,7 @@ function PeopleForm(){
     complemento: '',
     telefone: '',
     email: '',
+    teste: '',
   });
 
   useEffect(() => {
@@ -204,6 +205,16 @@ function PeopleForm(){
                         type="text"
                         name="email"
                         value={formData.email}
+                        onChange={handleChange}
+                        />
+                  </div>
+                  <div className='labelflex w70'>
+                    <label htmlFor='teste'>Apelido</label>
+                    <input
+                        className='w0'
+                        type="text"
+                        name="teste"
+                        value={formData.teste}
                         onChange={handleChange}
                         />
                   </div>

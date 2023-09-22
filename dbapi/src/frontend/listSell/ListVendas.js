@@ -23,12 +23,21 @@ function VendasList() {
       });
   }, []);
 
-  const vendasFiltradas = vendas.filter(venda =>
-    venda.nome.toLowerCase().includes(pessoaVenda.toLowerCase()) &&
-    venda.produto.toLowerCase().includes(prodVenda.toLowerCase()) &&
-    (dataInicio === '' || venda.datav >= dataInicio) &&
-    (dataFim === '' || venda.datav <= dataFim)
-  );
+  const vendasFiltradas = vendas.filter((venda) => {
+    // Verifica se venda.nome é uma string antes de chamar toLowerCase()
+    const nomeLowerCase = venda.nome ? venda.nome.toLowerCase() : '';
+  
+    // Verifica se venda.produto é uma string antes de chamar toLowerCase()
+    const produtoLowerCase = venda.produto ? venda.produto.toLowerCase() : '';
+  
+    return (
+      nomeLowerCase.includes(pessoaVenda.toLowerCase()) &&
+      produtoLowerCase.includes(prodVenda.toLowerCase()) &&
+      (dataInicio === '' || venda.datav >= dataInicio) &&
+      (dataFim === '' || venda.datav <= dataFim)
+    );
+  });
+  
 
   return (
     <div className='box'>
