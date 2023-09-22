@@ -24,10 +24,7 @@ function VendasList() {
   }, []);
 
   const vendasFiltradas = vendas.filter((venda) => {
-    // Verifica se venda.nome é uma string antes de chamar toLowerCase()
     const nomeLowerCase = venda.nome ? venda.nome.toLowerCase() : '';
-  
-    // Verifica se venda.produto é uma string antes de chamar toLowerCase()
     const produtoLowerCase = venda.produto ? venda.produto.toLowerCase() : '';
   
     return (
